@@ -4,6 +4,5 @@
 {% block page_title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <h2>tom.camp is under construction!</h2>
-    <img src="{{ url_for('static', filename='construction.gif') }}">
+    <article><i>"{{ quote[1] }}"</i><br>&mdash; {{ quote[0] }}</article>
 {% endblock %}

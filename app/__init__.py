@@ -1,4 +1,3 @@
-import os
 import sys
 from datetime import datetime
 
@@ -7,6 +6,8 @@ from flask import Flask, render_template
 from loguru import logger
 
 from app.static.files.quotes import quotes
+
+date = datetime.now().strftime("%Y")
 
 logger.remove()
 
@@ -41,7 +42,6 @@ def create_app(test_config=None):
 
     @app.route("/")
     def index():
-        date = datetime.now().strftime("%Y")
         content: dict = {
             "date": date,
             "title": "Home",
@@ -49,10 +49,18 @@ def create_app(test_config=None):
         }
         return render_template("index.html", **content)
 
+    @app.route("/about")
+    def about():
+        content: dict = {
+            "page_title": "About",
+            "date": date,
+            "title": "About",
+        }
+        return render_template("about.html", **content)
+
     return app
 
 
 if __name__ == "__main__":
     app = create_app()
-    environment = os.getenv("FLASK_ENV", "development")
     app.run()

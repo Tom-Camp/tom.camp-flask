@@ -14,4 +14,13 @@ nav > ul > li > a {
   color: #0f3888;
 }
 
+ul#branding li > a {
+  color: #000000;
+  text-decoration: none;
+}
+
+h1.title {
+  font-size: 1.3rem;
+}
+
 /*# sourceMappingURL=styles.css.map */
